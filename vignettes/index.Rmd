@@ -1,7 +1,7 @@
 ---
 title: "Methods Support Program"
 subtitle: "Webpage to organize and advertise this program"
-author: "Urs Kalbitzer"
+author: "Various people"
 date: "`r Sys.Date()`"
 documentclass: book
 bibliography: [book.bib]

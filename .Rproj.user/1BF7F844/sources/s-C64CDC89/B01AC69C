@@ -11,15 +11,15 @@
     "relative_order": 1,
     "properties": {
         "chunk_output_type": "console",
-        "cursorPosition": "11,16",
-        "scrollLine": "5"
+        "cursorPosition": "3,23",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1631719855,
+    "lastKnownWriteTime": 1631720867,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1631719855677,
+    "last_content_update": 1631720867931,
     "read_only": false,
     "read_only_alternatives": []
 }

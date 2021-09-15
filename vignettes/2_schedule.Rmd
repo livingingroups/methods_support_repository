@@ -3,7 +3,7 @@ output: html_document
 editor_options:
   chunk_output_type: console
 ---
-# Template Script
+# Schedule
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(echo = TRUE,
                       comment = "#>",
@@ -38,7 +38,8 @@ schedule_people_areas <- schedule %>%
   mutate(Start_date = as.Date(Start_date), End_date = as.Date(End_date))
 
 schedule_people_areas %>% 
-  select(Week, Start_date, End_date, FirstName, When = If_fixed_when, How_to_contact, Areas) %>% 
+  select(Week, Week_start = Start_date, Week_end = End_date,
+         FirstName, When = If_fixed_when, How_to_contact, Areas) %>% 
   kable()
 ```
 

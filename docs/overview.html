@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | Methods Support Program</title>
+  <title>2 Overview | Methods Support Program</title>
   <meta name="description" content="Webpage to organize and advertise the Methods Support Program at the EAS department/MPI-AB" />
   <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | Methods Support Program" />
+  <meta property="og:title" content="2 Overview | Methods Support Program" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="livingingroups/methods_support_repository" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | Methods Support Program" />
+  <meta name="twitter:title" content="2 Overview | Methods Support Program" />
   
   <meta name="twitter:description" content="Webpage to organize and advertise the Methods Support Program at the EAS department/MPI-AB" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-
+<link rel="prev" href="index.html"/>
+<link rel="next" href="schedule.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -691,19 +691,525 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="overview" class="section level1">
+<h1><span class="header-section-number">2</span> Overview</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="overview.html#cb1-1"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb1-2"><a href="overview.html#cb1-2"></a><span class="co">#&gt; </span></span>
+<span id="cb1-3"><a href="overview.html#cb1-3"></a><span class="co">#&gt; Attaching package: &#39;dplyr&#39;</span></span>
+<span id="cb1-4"><a href="overview.html#cb1-4"></a><span class="co">#&gt; The following objects are masked from &#39;package:stats&#39;:</span></span>
+<span id="cb1-5"><a href="overview.html#cb1-5"></a><span class="co">#&gt; </span></span>
+<span id="cb1-6"><a href="overview.html#cb1-6"></a><span class="co">#&gt;     filter, lag</span></span>
+<span id="cb1-7"><a href="overview.html#cb1-7"></a><span class="co">#&gt; The following objects are masked from &#39;package:base&#39;:</span></span>
+<span id="cb1-8"><a href="overview.html#cb1-8"></a><span class="co">#&gt; </span></span>
+<span id="cb1-9"><a href="overview.html#cb1-9"></a><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span>
+<span id="cb1-10"><a href="overview.html#cb1-10"></a><span class="kw">library</span>(knitr)</span></code></pre></div>
+<p>Here is a list with all people interested in providing support including their areas in which they can provide support.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="overview.html#cb2-1"></a>people &lt;-<span class="st"> </span>readxl<span class="op">::</span><span class="kw">read_excel</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;data/Info_on_people.xlsx&quot;</span>),</span>
+<span id="cb2-2"><a href="overview.html#cb2-2"></a>                   <span class="dt">sheet =</span> <span class="st">&quot;Name_table&quot;</span>)</span>
+<span id="cb2-3"><a href="overview.html#cb2-3"></a>support_area &lt;-<span class="st"> </span>readxl<span class="op">::</span><span class="kw">read_excel</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;data/Info_on_people.xlsx&quot;</span>),</span>
+<span id="cb2-4"><a href="overview.html#cb2-4"></a>                   <span class="dt">sheet =</span> <span class="st">&quot;Expertise_table&quot;</span>)</span>
+<span id="cb2-5"><a href="overview.html#cb2-5"></a></span>
+<span id="cb2-6"><a href="overview.html#cb2-6"></a>people_support_area &lt;-<span class="st"> </span>people <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb2-7"><a href="overview.html#cb2-7"></a><span class="st">  </span><span class="kw">left_join</span>(support_area, <span class="dt">by =</span> <span class="st">&quot;Name_ID&quot;</span>)</span>
+<span id="cb2-8"><a href="overview.html#cb2-8"></a></span>
+<span id="cb2-9"><a href="overview.html#cb2-9"></a>people_support_area <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb2-10"><a href="overview.html#cb2-10"></a><span class="st">  </span><span class="kw">select</span>(<span class="dt">Name =</span> FirstName, Fixed_or_flexible, If_fixed_when, Support_areas) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb2-11"><a href="overview.html#cb2-11"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
+<table>
+<colgroup>
+<col width="2%" />
+<col width="4%" />
+<col width="3%" />
+<col width="88%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Name</th>
+<th align="left">Fixed_or_flexible</th>
+<th align="left">If_fixed_when</th>
+<th align="left">Support_areas</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Alie</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">R programming (base &amp; tidyverse)</td>
+</tr>
+<tr class="even">
+<td align="left">Alie</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Data wrangling</td>
+</tr>
+<tr class="odd">
+<td align="left">Alie</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Data visualization (including mapping) (conceptualization +/ execution in R)</td>
+</tr>
+<tr class="even">
+<td align="left">Alie</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Basic frequentist stats (parametric and non-parametric)</td>
+</tr>
+<tr class="odd">
+<td align="left">Alie</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">General and generalized linear (mixed) modelling (GL(M)Ms and L(M)Ms)</td>
+</tr>
+<tr class="even">
+<td align="left">Alie</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Basic movement analysis (calculating home ranges, DJLs, etc)</td>
+</tr>
+<tr class="odd">
+<td align="left">Urs</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">R programming</td>
+</tr>
+<tr class="even">
+<td align="left">Urs</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Data wrangling and visualizations</td>
+</tr>
+<tr class="odd">
+<td align="left">Urs</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Working with spatial data (to a certain degree)</td>
+</tr>
+<tr class="even">
+<td align="left">Urs</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Fitting linear models from LMs to GLMMs in a frequentist and bayesian way</td>
+</tr>
+<tr class="odd">
+<td align="left">Urs</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Social Network Analysis</td>
+</tr>
+<tr class="even">
+<td align="left">Urs</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Generally working with data on social behavior</td>
+</tr>
+<tr class="odd">
+<td align="left">Urs</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Data bases</td>
+</tr>
+<tr class="even">
+<td align="left">Urs</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Structuring data analysis projects</td>
+</tr>
+<tr class="odd">
+<td align="left">Urs</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Foundations of endocrinological work with wild animals</td>
+</tr>
+<tr class="even">
+<td align="left">Urs</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Workin with long-term data sets</td>
+</tr>
+<tr class="odd">
+<td align="left">Roi</td>
+<td align="left">flexible</td>
+<td align="left">NA</td>
+<td align="left">Data wrangling and visualizations</td>
+</tr>
+<tr class="even">
+<td align="left">Roi</td>
+<td align="left">flexible</td>
+<td align="left">NA</td>
+<td align="left">Analysing acceleration data &amp; behavior inference from sensor data</td>
+</tr>
+<tr class="odd">
+<td align="left">Roi</td>
+<td align="left">flexible</td>
+<td align="left">NA</td>
+<td align="left">Data collection design and working with data-loggers / GPS collars</td>
+</tr>
+<tr class="even">
+<td align="left">Roi</td>
+<td align="left">flexible</td>
+<td align="left">NA</td>
+<td align="left">working with video data (object detection &amp; tracking, Python, OpenCV)</td>
+</tr>
+<tr class="odd">
+<td align="left">Roi</td>
+<td align="left">flexible</td>
+<td align="left">NA</td>
+<td align="left">Machine Learning clustering, SVM, random forest, xgboost (R, Matlab)</td>
+</tr>
+<tr class="even">
+<td align="left">Tracy</td>
+<td align="left">either</td>
+<td align="left">NA</td>
+<td align="left">R programming (base &amp; tidyverse)</td>
+</tr>
+<tr class="odd">
+<td align="left">Tracy</td>
+<td align="left">either</td>
+<td align="left">NA</td>
+<td align="left">Data wrangling &amp; visualization</td>
+</tr>
+<tr class="even">
+<td align="left">Tracy</td>
+<td align="left">either</td>
+<td align="left">NA</td>
+<td align="left">Designing GLMMs &amp; otherwise structuring an analysis to test hypotheses</td>
+</tr>
+<tr class="odd">
+<td align="left">Tracy</td>
+<td align="left">either</td>
+<td align="left">NA</td>
+<td align="left">Executing GLMMs (frequentist)</td>
+</tr>
+<tr class="even">
+<td align="left">Tracy</td>
+<td align="left">either</td>
+<td align="left">NA</td>
+<td align="left">Long-term data, behavioral sampling design/analysis, database design</td>
+</tr>
+<tr class="odd">
+<td align="left">Eli</td>
+<td align="left">flexible</td>
+<td align="left">NA</td>
+<td align="left">R</td>
+</tr>
+<tr class="even">
+<td align="left">Eli</td>
+<td align="left">flexible</td>
+<td align="left">NA</td>
+<td align="left">git/github</td>
+</tr>
+<tr class="odd">
+<td align="left">Eli</td>
+<td align="left">flexible</td>
+<td align="left">NA</td>
+<td align="left">Data wrangling</td>
+</tr>
+<tr class="even">
+<td align="left">Eli</td>
+<td align="left">flexible</td>
+<td align="left">NA</td>
+<td align="left">Data visualization</td>
+</tr>
+<tr class="odd">
+<td align="left">Eli</td>
+<td align="left">flexible</td>
+<td align="left">NA</td>
+<td align="left">Simulations</td>
+</tr>
+<tr class="even">
+<td align="left">Eli</td>
+<td align="left">flexible</td>
+<td align="left">NA</td>
+<td align="left">Social network data, long-term data</td>
+</tr>
+<tr class="odd">
+<td align="left">Eli</td>
+<td align="left">flexible</td>
+<td align="left">NA</td>
+<td align="left">Happy to try to help with movement/tag data but I’m still learning</td>
+</tr>
+<tr class="even">
+<td align="left">Eli</td>
+<td align="left">flexible</td>
+<td align="left">NA</td>
+<td align="left">R package development</td>
+</tr>
+<tr class="odd">
+<td align="left">Vivek Hari</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Python programming; data wrangling &amp; visualisation</td>
+</tr>
+<tr class="even">
+<td align="left">Vivek Hari</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Agent-based modelling (I tend to use C++)</td>
+</tr>
+<tr class="odd">
+<td align="left">Vivek Hari</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">General analyses and data interpretation for animal movement, social/collective behaviours</td>
+</tr>
+<tr class="even">
+<td align="left">Vivek Hari</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Basic computer vision (OpenCV)</td>
+</tr>
+<tr class="odd">
+<td align="left">Vivek Hari</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Basic bayesian statistics (GLMs/GLMMs)</td>
+</tr>
+<tr class="even">
+<td align="left">Vivek Hari</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Machine learning (dimensionality reduction/clustering)</td>
+</tr>
+<tr class="odd">
+<td align="left">Jake</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">General experimental design/analysis questions</td>
+</tr>
+<tr class="even">
+<td align="left">Jake</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Python: data wrangling (pandas, numpy, etc.), visualisation (expert knowledge of matplotlib and seaborn APIs), code optimization (vectorized/parallel programming, JIT optimization, GPU compute), machine learning and optimization libraries (JAX, PyTorch, Tensorflow/Keras, Numpyro/Pyro, PyMC3, PyStan), package development (pip, PyPI, setuptools)</td>
+</tr>
+<tr class="odd">
+<td align="left">Jake</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Analysis and interpretation of animal movement trajectories (incl. high-dimensional time series), social/collective behaviours, network data, audio/spectrogram data</td>
+</tr>
+<tr class="even">
+<td align="left">Jake</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Advanced computer vision and image processing (OpenCV, deep conv nets, object detection and tracking, pose estimation, segmentation, image/object classification)</td>
+</tr>
+<tr class="odd">
+<td align="left">Jake</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Advanced bayesian statistics and causal inference (GLMs/GLMMs, Bayesian networks, hierarchical models, autoregressive/time series models, latent variable models, variational inference)</td>
+</tr>
+<tr class="even">
+<td align="left">Jake</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Machine learning and deep learning (neural nets, linear/nonlinear dimension reduction, contrastive learning, clustering &amp; unsupervised classification, sequence and time series models, supervised classification, Bayesian/probabilistic deep learning)</td>
+</tr>
+<tr class="odd">
+<td align="left">Shauhin</td>
+<td align="left">either</td>
+<td align="left">NA</td>
+<td align="left">R, QGIS</td>
+</tr>
+<tr class="even">
+<td align="left">Shauhin</td>
+<td align="left">either</td>
+<td align="left">NA</td>
+<td align="left">Data manipulation and visualizations</td>
+</tr>
+<tr class="odd">
+<td align="left">Shauhin</td>
+<td align="left">either</td>
+<td align="left">NA</td>
+<td align="left">Sampling design</td>
+</tr>
+<tr class="even">
+<td align="left">Shauhin</td>
+<td align="left">either</td>
+<td align="left">NA</td>
+<td align="left">Bio-loggers and GPS collars</td>
+</tr>
+<tr class="odd">
+<td align="left">Shauhin</td>
+<td align="left">either</td>
+<td align="left">NA</td>
+<td align="left">Bayesian (rstan) and frequentist statistics (GLMM/GAMM, splines, nonlinear hierarchical models, autoregressive/timeseries models, spatial regression, PCA, phylogenetic models)</td>
+</tr>
+<tr class="even">
+<td align="left">Shauhin</td>
+<td align="left">either</td>
+<td align="left">NA</td>
+<td align="left">Geospatial statistics</td>
+</tr>
+<tr class="odd">
+<td align="left">Shauhin</td>
+<td align="left">either</td>
+<td align="left">NA</td>
+<td align="left">Network Analysis</td>
+</tr>
+<tr class="even">
+<td align="left">Shauhin</td>
+<td align="left">either</td>
+<td align="left">NA</td>
+<td align="left">Simulation, theoretical modeling, agent based modeling</td>
+</tr>
+<tr class="odd">
+<td align="left">Shauhin</td>
+<td align="left">either</td>
+<td align="left">NA</td>
+<td align="left">Supervised and unsupervised clustering, SVM, random forest, xgboost</td>
+</tr>
+<tr class="even">
+<td align="left">Shauhin</td>
+<td align="left">either</td>
+<td align="left">NA</td>
+<td align="left">Analysis of animal movement data (discrete and continuous time)</td>
+</tr>
+<tr class="odd">
+<td align="left">Shauhin</td>
+<td align="left">either</td>
+<td align="left">NA</td>
+<td align="left">Behavioral inference from sensor data (GPS, ACC)</td>
+</tr>
+<tr class="even">
+<td align="left">Shauhin</td>
+<td align="left">either</td>
+<td align="left">NA</td>
+<td align="left">Remote sensing (Hyperspectral/multispectral data, satellite and aerial imagery, LiDAR, SAR, photogrammetry)</td>
+</tr>
+<tr class="odd">
+<td align="left">Shauhin</td>
+<td align="left">either</td>
+<td align="left">NA</td>
+<td align="left">Nutritional Analyses and Geometric framework of Nutrition</td>
+</tr>
+<tr class="even">
+<td align="left">Shauhin</td>
+<td align="left">either</td>
+<td align="left">NA</td>
+<td align="left">Spatial Cognition</td>
+</tr>
+<tr class="odd">
+<td align="left">Shauhin</td>
+<td align="left">either</td>
+<td align="left">NA</td>
+<td align="left">Basic field endocrinology/physiology</td>
+</tr>
+<tr class="even">
+<td align="left">Mara</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">R</td>
+</tr>
+<tr class="odd">
+<td align="left">Mara</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Python</td>
+</tr>
+<tr class="even">
+<td align="left">Mara</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Data wrangling</td>
+</tr>
+<tr class="odd">
+<td align="left">Mara</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Data visualization</td>
+</tr>
+<tr class="even">
+<td align="left">Mara</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Supervised and unsupervised dimensionality reduction, clustering</td>
+</tr>
+<tr class="odd">
+<td align="left">Mara</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Bioacoustics</td>
+</tr>
+<tr class="even">
+<td align="left">Mara</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">ML or other classifier (SVM, random forest, NN, xgboost, LDA..)</td>
+</tr>
+<tr class="odd">
+<td align="left">Mara</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Frequentist statistics in R</td>
+</tr>
+<tr class="even">
+<td align="left">Mara</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Bioinformatic analyses in R/bash/C (Illumina microarrays, NGS data, genomics…)</td>
+</tr>
+<tr class="odd">
+<td align="left">Genevieve</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Mostly in R, unless someone wants to do connectivity stuff using UNICOR and/or CircuitScape</td>
+</tr>
+<tr class="even">
+<td align="left">Genevieve</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Can maybe help with QGIS also, but try to avoid it</td>
+</tr>
+<tr class="odd">
+<td align="left">Genevieve</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">General data wrangling/visualisation, incl. movement and spatial data (gridded datasets etc)</td>
+</tr>
+<tr class="even">
+<td align="left">Genevieve</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Problem shooting code/error messages</td>
+</tr>
+<tr class="odd">
+<td align="left">Genevieve</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Running things in parallel (I’m not great but it works, more or less)</td>
+</tr>
+<tr class="even">
+<td align="left">Genevieve</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">Animal movement analysis; home range/daily distances etc (have mostly been using ctmm package recently)</td>
+</tr>
+<tr class="odd">
+<td align="left">Genevieve</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">A bit of agent-based modelling (netlogo)</td>
+</tr>
+<tr class="even">
+<td align="left">Genevieve</td>
+<td align="left">fixed</td>
+<td align="left">NA</td>
+<td align="left">lm/glm/glmm/gam using frequentist approaches</td>
+</tr>
+</tbody>
+</table>
+
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="schedule.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -1,7 +1,7 @@
 ---
 title: "Methods Support Program"
 subtitle: "Webpage to organize and advertise this program"
-author: "Urs Kalbitzer"
+author: "Various people"
 date: "2021-09-15"
 documentclass: book
 bibliography: [book.bib]
