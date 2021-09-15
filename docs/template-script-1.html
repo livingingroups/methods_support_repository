@@ -724,7 +724,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-19"><a href="template-script-1.html#cb4-19"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Start_date =</span> <span class="kw">as.Date</span>(Start_date), <span class="dt">End_date =</span> <span class="kw">as.Date</span>(End_date))</span>
 <span id="cb4-20"><a href="template-script-1.html#cb4-20"></a></span>
 <span id="cb4-21"><a href="template-script-1.html#cb4-21"></a>schedule_people_areas <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb4-22"><a href="template-script-1.html#cb4-22"></a><span class="st">  </span><span class="kw">select</span>(Week, Start_date, FirstName, <span class="dt">When =</span> If_fixed_when, How_to_contact, Areas) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb4-22"><a href="template-script-1.html#cb4-22"></a><span class="st">  </span><span class="kw">select</span>(Week, Start_date, End_date, FirstName, <span class="dt">When =</span> If_fixed_when, How_to_contact, Areas) <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb4-23"><a href="template-script-1.html#cb4-23"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
 <table>
 <colgroup>
@@ -732,13 +732,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <col width="0%" />
 <col width="0%" />
 <col width="0%" />
+<col width="0%" />
 <col width="1%" />
-<col width="96%" />
+<col width="95%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="right">Week</th>
 <th align="left">Start_date</th>
+<th align="left">End_date</th>
 <th align="left">FirstName</th>
 <th align="left">When</th>
 <th align="left">How_to_contact</th>
@@ -749,6 +751,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="odd">
 <td align="right">39</td>
 <td align="left">2021-09-27</td>
+<td align="left">2021-10-01</td>
 <td align="left">Alie</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -757,6 +760,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="even">
 <td align="right">39</td>
 <td align="left">2021-09-27</td>
+<td align="left">2021-10-01</td>
 <td align="left">Roi</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -765,6 +769,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="odd">
 <td align="right">40</td>
 <td align="left">2021-10-04</td>
+<td align="left">2021-10-08</td>
 <td align="left">Tracy</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -773,6 +778,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="even">
 <td align="right">40</td>
 <td align="left">2021-10-04</td>
+<td align="left">2021-10-08</td>
 <td align="left">Jake</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -781,6 +787,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="odd">
 <td align="right">41</td>
 <td align="left">2021-10-11</td>
+<td align="left">2021-10-15</td>
 <td align="left">Eli</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -789,6 +796,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="even">
 <td align="right">41</td>
 <td align="left">2021-10-11</td>
+<td align="left">2021-10-15</td>
 <td align="left">Shauhin</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -797,6 +805,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="odd">
 <td align="right">42</td>
 <td align="left">2021-10-18</td>
+<td align="left">2021-10-22</td>
 <td align="left">Mara</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -805,6 +814,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="even">
 <td align="right">42</td>
 <td align="left">2021-10-18</td>
+<td align="left">2021-10-22</td>
 <td align="left">Genevieve</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -813,6 +823,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="odd">
 <td align="right">43</td>
 <td align="left">2021-10-25</td>
+<td align="left">2021-10-29</td>
 <td align="left">Vivek Hari</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -821,6 +832,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="even">
 <td align="right">43</td>
 <td align="left">2021-10-25</td>
+<td align="left">2021-10-29</td>
 <td align="left">Urs</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -829,6 +841,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="odd">
 <td align="right">44</td>
 <td align="left">2021-11-01</td>
+<td align="left">2021-11-05</td>
 <td align="left">Alie</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -837,6 +850,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="even">
 <td align="right">44</td>
 <td align="left">2021-11-01</td>
+<td align="left">2021-11-05</td>
 <td align="left">Roi</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -845,6 +859,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="odd">
 <td align="right">45</td>
 <td align="left">2021-11-08</td>
+<td align="left">2021-11-12</td>
 <td align="left">Tracy</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -853,6 +868,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="even">
 <td align="right">45</td>
 <td align="left">2021-11-08</td>
+<td align="left">2021-11-12</td>
 <td align="left">Jake</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -861,6 +877,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="odd">
 <td align="right">46</td>
 <td align="left">2021-11-15</td>
+<td align="left">2021-11-19</td>
 <td align="left">Eli</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -869,6 +886,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="even">
 <td align="right">46</td>
 <td align="left">2021-11-15</td>
+<td align="left">2021-11-19</td>
 <td align="left">Shauhin</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -877,6 +895,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="odd">
 <td align="right">47</td>
 <td align="left">2021-11-22</td>
+<td align="left">2021-11-26</td>
 <td align="left">Mara</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -885,6 +904,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="even">
 <td align="right">47</td>
 <td align="left">2021-11-22</td>
+<td align="left">2021-11-26</td>
 <td align="left">Genevieve</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -893,6 +913,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="odd">
 <td align="right">48</td>
 <td align="left">2021-11-29</td>
+<td align="left">2021-12-03</td>
 <td align="left">Vivek Hari</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -901,6 +922,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="even">
 <td align="right">48</td>
 <td align="left">2021-11-29</td>
+<td align="left">2021-12-03</td>
 <td align="left">Urs</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -909,6 +931,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="odd">
 <td align="right">49</td>
 <td align="left">2021-12-06</td>
+<td align="left">2021-12-10</td>
 <td align="left">Alie</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -917,6 +940,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="even">
 <td align="right">49</td>
 <td align="left">2021-12-06</td>
+<td align="left">2021-12-10</td>
 <td align="left">Roi</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -925,6 +949,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="odd">
 <td align="right">50</td>
 <td align="left">2021-12-13</td>
+<td align="left">2021-12-17</td>
 <td align="left">Tracy</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -933,6 +958,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="even">
 <td align="right">50</td>
 <td align="left">2021-12-13</td>
+<td align="left">2021-12-17</td>
 <td align="left">Jake</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
