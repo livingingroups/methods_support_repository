@@ -23,7 +23,7 @@ knitr::opts_knit$set(root.dir = '../')
 
 ```{r set_fold, include=FALSE}
 source("R/initial_folding.R")
-create_html_header("show") # either "show" or "fold"
+create_html_header("fold") # either "show" or "fold"
 ```
 
 # Introduction

@@ -13,6 +13,7 @@ knitr::opts_knit$set(root.dir = '../')
 
 ```{r}
 library(dplyr)
+library(knitr)
 ```
 
 
@@ -28,7 +29,7 @@ people_support_area <- people %>%
   left_join(support_area, by = "Name_ID")
 
 people_support_area %>% 
-  select(Name = FirstName, Fixed_or_flexible, If_fixed_when, Support_areas)
-
+  select(Name = FirstName, Fixed_or_flexible, If_fixed_when, Support_areas) %>% 
+  kable()
 ```
 
