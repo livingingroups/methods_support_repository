@@ -1,0 +1,27 @@
+{
+    "id": "66426D71",
+    "path": "~/ownCloud/MPI/Methods_Support_Program/methods_support_repository/vignettes/1_overview.Rmd",
+    "project_path": "vignettes/1_overview.Rmd",
+    "type": "r_markdown",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1631714752622.0,
+    "source_on_save": false,
+    "relative_order": 3,
+    "properties": {
+        "tempName": "Untitled1",
+        "cursorPosition": "21,0",
+        "scrollLine": "19",
+        "last_setup_crc32": "C64CDC8952841697",
+        "chunk_output_type": "console"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1631717193,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1631717193574,
+    "read_only": false,
+    "read_only_alternatives": []
+}

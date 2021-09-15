@@ -1,0 +1,43 @@
+---
+output: html_document
+editor_options:
+  chunk_output_type: console
+---
+# Template Script
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      comment = "#>",
+                      collapse = TRUE)
+knitr::opts_knit$set(root.dir = '../')
+```
+
+```{r}
+library(dplyr)
+```
+
+
+```{r}
+people <- readxl::read_excel(here::here("data/Info_on_people.xlsx"),
+                   sheet = "Name_table")
+support_area <- readxl::read_excel(here::here("data/Info_on_people.xlsx"),
+                   sheet = "Expertise_table")
+
+people_support_area <- people %>% 
+  left_join(support_area, by = "Name_ID")
+
+schedule <- readxl::read_excel(here::here("data/Info_on_people.xlsx"),
+                   sheet = "Schedule_table")
+
+people_support_areas_concatenated <- people_support_area %>% 
+  group_by(Name_ID, FirstName, Fixed_or_flexible, If_fixed_when, How_to_contact) %>% 
+  summarize(Areas = paste(Support_areas, collapse = ", "))
+
+schedule_people_areas <- schedule %>% 
+  left_join(people_support_areas_concatenated, by = "Name_ID") %>% 
+  mutate(Start_date = as.Date(Start_date), End_date = as.Date(End_date))
+
+schedule_people_areas %>% 
+  select(Week, Start_date, FirstName, When = If_fixed_when, How_to_contact, Areas)
+```
+
+

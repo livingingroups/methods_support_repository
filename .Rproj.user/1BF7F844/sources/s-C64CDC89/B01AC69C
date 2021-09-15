@@ -1,0 +1,25 @@
+{
+    "id": "B01AC69C",
+    "path": "~/ownCloud/MPI/Methods_Support_Program/methods_support_repository/vignettes/index.Rmd",
+    "project_path": "vignettes/index.Rmd",
+    "type": "r_markdown",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1631713230789.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "chunk_output_type": "console",
+        "cursorPosition": "9,54",
+        "scrollLine": "5"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1631714592,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1631714592415,
+    "read_only": false,
+    "read_only_alternatives": []
+}
