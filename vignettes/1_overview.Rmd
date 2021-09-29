@@ -29,7 +29,10 @@ people_support_area <- people %>%
   left_join(support_area, by = "Name_ID")
 
 people_support_area %>% 
-  select(Name = FirstName, Fixed_or_flexible, If_fixed_when, Support_areas) %>% 
+  group_by(Name_ID, FirstName) %>% 
+  summarize(Areas = paste(Support_areas, collapse = ", ")) %>% 
+  ungroup %>% 
+  select(FirstName, Areas) %>% 
   kable()
 ```
 

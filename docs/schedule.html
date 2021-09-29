@@ -24,7 +24,7 @@
 <meta name="author" content="Various people" />
 
 
-<meta name="date" content="2021-09-15" />
+<meta name="date" content="2021-09-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -705,38 +705,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-10"><a href="schedule.html#cb3-10"></a><span class="kw">library</span>(knitr)</span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="schedule.html#cb4-1"></a>people &lt;-<span class="st"> </span>readxl<span class="op">::</span><span class="kw">read_excel</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;data/Info_on_people.xlsx&quot;</span>),</span>
 <span id="cb4-2"><a href="schedule.html#cb4-2"></a>                   <span class="dt">sheet =</span> <span class="st">&quot;Name_table&quot;</span>)</span>
-<span id="cb4-3"><a href="schedule.html#cb4-3"></a>support_area &lt;-<span class="st"> </span>readxl<span class="op">::</span><span class="kw">read_excel</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;data/Info_on_people.xlsx&quot;</span>),</span>
-<span id="cb4-4"><a href="schedule.html#cb4-4"></a>                   <span class="dt">sheet =</span> <span class="st">&quot;Expertise_table&quot;</span>)</span>
-<span id="cb4-5"><a href="schedule.html#cb4-5"></a></span>
-<span id="cb4-6"><a href="schedule.html#cb4-6"></a>people_support_area &lt;-<span class="st"> </span>people <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb4-7"><a href="schedule.html#cb4-7"></a><span class="st">  </span><span class="kw">left_join</span>(support_area, <span class="dt">by =</span> <span class="st">&quot;Name_ID&quot;</span>)</span>
-<span id="cb4-8"><a href="schedule.html#cb4-8"></a></span>
-<span id="cb4-9"><a href="schedule.html#cb4-9"></a>schedule &lt;-<span class="st"> </span>readxl<span class="op">::</span><span class="kw">read_excel</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;data/Info_on_people.xlsx&quot;</span>),</span>
-<span id="cb4-10"><a href="schedule.html#cb4-10"></a>                   <span class="dt">sheet =</span> <span class="st">&quot;Schedule_table&quot;</span>)</span>
-<span id="cb4-11"><a href="schedule.html#cb4-11"></a></span>
-<span id="cb4-12"><a href="schedule.html#cb4-12"></a>people_support_areas_concatenated &lt;-<span class="st"> </span>people_support_area <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb4-13"><a href="schedule.html#cb4-13"></a><span class="st">  </span><span class="kw">group_by</span>(Name_ID, FirstName, Fixed_or_flexible, If_fixed_when, How_to_contact) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb4-14"><a href="schedule.html#cb4-14"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">Areas =</span> <span class="kw">paste</span>(Support_areas, <span class="dt">collapse =</span> <span class="st">&quot;, &quot;</span>))</span>
-<span id="cb4-15"><a href="schedule.html#cb4-15"></a><span class="co">#&gt; `summarise()` has grouped output by &#39;Name_ID&#39;, &#39;FirstName&#39;, &#39;Fixed_or_flexible&#39;, &#39;If_fixed_when&#39;. You can override using the `.groups` argument.</span></span>
-<span id="cb4-16"><a href="schedule.html#cb4-16"></a></span>
-<span id="cb4-17"><a href="schedule.html#cb4-17"></a>schedule_people_areas &lt;-<span class="st"> </span>schedule <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb4-18"><a href="schedule.html#cb4-18"></a><span class="st">  </span><span class="kw">left_join</span>(people_support_areas_concatenated, <span class="dt">by =</span> <span class="st">&quot;Name_ID&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb4-19"><a href="schedule.html#cb4-19"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Start_date =</span> <span class="kw">as.Date</span>(Start_date), <span class="dt">End_date =</span> <span class="kw">as.Date</span>(End_date))</span>
-<span id="cb4-20"><a href="schedule.html#cb4-20"></a></span>
-<span id="cb4-21"><a href="schedule.html#cb4-21"></a>schedule_people_areas <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb4-22"><a href="schedule.html#cb4-22"></a><span class="st">  </span><span class="kw">select</span>(Week, <span class="dt">Week_start =</span> Start_date, <span class="dt">Week_end =</span> End_date,</span>
-<span id="cb4-23"><a href="schedule.html#cb4-23"></a>         FirstName, <span class="dt">When =</span> If_fixed_when, How_to_contact, Areas) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb4-24"><a href="schedule.html#cb4-24"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
+<span id="cb4-3"><a href="schedule.html#cb4-3"></a></span>
+<span id="cb4-4"><a href="schedule.html#cb4-4"></a>schedule &lt;-<span class="st"> </span>readxl<span class="op">::</span><span class="kw">read_excel</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;data/Info_on_people.xlsx&quot;</span>),</span>
+<span id="cb4-5"><a href="schedule.html#cb4-5"></a>                   <span class="dt">sheet =</span> <span class="st">&quot;Schedule_table&quot;</span>)</span>
+<span id="cb4-6"><a href="schedule.html#cb4-6"></a></span>
+<span id="cb4-7"><a href="schedule.html#cb4-7"></a>schedule_people &lt;-<span class="st"> </span>schedule <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb4-8"><a href="schedule.html#cb4-8"></a><span class="st">  </span><span class="kw">left_join</span>(people, <span class="dt">by =</span> <span class="st">&quot;Name_ID&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb4-9"><a href="schedule.html#cb4-9"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Start_date =</span> <span class="kw">as.Date</span>(Start_date), <span class="dt">End_date =</span> <span class="kw">as.Date</span>(End_date))</span>
+<span id="cb4-10"><a href="schedule.html#cb4-10"></a></span>
+<span id="cb4-11"><a href="schedule.html#cb4-11"></a>schedule_people <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb4-12"><a href="schedule.html#cb4-12"></a><span class="st">  </span><span class="kw">select</span>(Week, <span class="dt">Week_start =</span> Start_date, <span class="dt">Week_end =</span> End_date,</span>
+<span id="cb4-13"><a href="schedule.html#cb4-13"></a>         FirstName, <span class="dt">When =</span> If_fixed_when, How_to_contact) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb4-14"><a href="schedule.html#cb4-14"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
 <table>
-<colgroup>
-<col width="0%" />
-<col width="0%" />
-<col width="0%" />
-<col width="0%" />
-<col width="0%" />
-<col width="1%" />
-<col width="95%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th align="right">Week</th>
@@ -745,7 +726,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <th align="left">FirstName</th>
 <th align="left">When</th>
 <th align="left">How_to_contact</th>
-<th align="left">Areas</th>
 </tr>
 </thead>
 <tbody>
@@ -756,7 +736,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">Alie</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">R programming (base &amp; tidyverse), Data wrangling, Data visualization (including mapping) (conceptualization +/ execution in R), Basic frequentist stats (parametric and non-parametric), General and generalized linear (mixed) modelling (GL(M)Ms and L(M)Ms), Basic movement analysis (calculating home ranges, DJLs, etc)</td>
 </tr>
 <tr class="even">
 <td align="right">39</td>
@@ -765,7 +744,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">Roi</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">Data wrangling and visualizations, Analysing acceleration data &amp; behavior inference from sensor data, Data collection design and working with data-loggers / GPS collars, working with video data (object detection &amp; tracking, Python, OpenCV), Machine Learning clustering, SVM, random forest, xgboost (R, Matlab)</td>
 </tr>
 <tr class="odd">
 <td align="right">40</td>
@@ -774,7 +752,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">Tracy</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">R programming (base &amp; tidyverse), Data wrangling &amp; visualization, Designing GLMMs &amp; otherwise structuring an analysis to test hypotheses, Executing GLMMs (frequentist), Long-term data, behavioral sampling design/analysis, database design</td>
 </tr>
 <tr class="even">
 <td align="right">40</td>
@@ -783,7 +760,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">Jake</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">General experimental design/analysis questions, Python: data wrangling (pandas, numpy, etc.), visualisation (expert knowledge of matplotlib and seaborn APIs), code optimization (vectorized/parallel programming, JIT optimization, GPU compute), machine learning and optimization libraries (JAX, PyTorch, Tensorflow/Keras, Numpyro/Pyro, PyMC3, PyStan), package development (pip, PyPI, setuptools), Analysis and interpretation of animal movement trajectories (incl. high-dimensional time series), social/collective behaviours, network data, audio/spectrogram data, Advanced computer vision and image processing (OpenCV, deep conv nets, object detection and tracking, pose estimation, segmentation, image/object classification), Advanced bayesian statistics and causal inference (GLMs/GLMMs, Bayesian networks, hierarchical models, autoregressive/time series models, latent variable models, variational inference), Machine learning and deep learning (neural nets, linear/nonlinear dimension reduction, contrastive learning, clustering &amp; unsupervised classification, sequence and time series models, supervised classification, Bayesian/probabilistic deep learning)</td>
 </tr>
 <tr class="odd">
 <td align="right">41</td>
@@ -792,7 +768,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">Eli</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">R, git/github, Data wrangling, Data visualization, Simulations, Social network data, long-term data, Happy to try to help with movement/tag data but I’m still learning, R package development</td>
 </tr>
 <tr class="even">
 <td align="right">41</td>
@@ -801,7 +776,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">Shauhin</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">R, QGIS, Data manipulation and visualizations, Sampling design, Bio-loggers and GPS collars, Bayesian (rstan) and frequentist statistics (GLMM/GAMM, splines, nonlinear hierarchical models, autoregressive/timeseries models, spatial regression, PCA, phylogenetic models), Geospatial statistics, Network Analysis, Simulation, theoretical modeling, agent based modeling, Supervised and unsupervised clustering, SVM, random forest, xgboost, Analysis of animal movement data (discrete and continuous time), Behavioral inference from sensor data (GPS, ACC), Remote sensing (Hyperspectral/multispectral data, satellite and aerial imagery, LiDAR, SAR, photogrammetry), Nutritional Analyses and Geometric framework of Nutrition, Spatial Cognition , Basic field endocrinology/physiology</td>
 </tr>
 <tr class="odd">
 <td align="right">42</td>
@@ -810,7 +784,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">Mara</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">R, Python, Data wrangling, Data visualization, Supervised and unsupervised dimensionality reduction, clustering, Bioacoustics, ML or other classifier (SVM, random forest, NN, xgboost, LDA..), Frequentist statistics in R, Bioinformatic analyses in R/bash/C (Illumina microarrays, NGS data, genomics…)</td>
 </tr>
 <tr class="even">
 <td align="right">42</td>
@@ -819,7 +792,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">Genevieve</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">Mostly in R, unless someone wants to do connectivity stuff using UNICOR and/or CircuitScape, Can maybe help with QGIS also, but try to avoid it, General data wrangling/visualisation, incl. movement and spatial data (gridded datasets etc), Problem shooting code/error messages, Running things in parallel (I’m not great but it works, more or less), Animal movement analysis; home range/daily distances etc (have mostly been using ctmm package recently), A bit of agent-based modelling (netlogo), lm/glm/glmm/gam using frequentist approaches</td>
 </tr>
 <tr class="odd">
 <td align="right">43</td>
@@ -828,7 +800,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">Vivek Hari</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">Python programming; data wrangling &amp; visualisation, Agent-based modelling (I tend to use C++), General analyses and data interpretation for animal movement, social/collective behaviours, Basic computer vision (OpenCV), Basic bayesian statistics (GLMs/GLMMs), Machine learning (dimensionality reduction/clustering)</td>
 </tr>
 <tr class="even">
 <td align="right">43</td>
@@ -837,7 +808,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">Urs</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">R programming, Data wrangling and visualizations, Working with spatial data (to a certain degree), Fitting linear models from LMs to GLMMs in a frequentist and bayesian way, Social Network Analysis, Generally working with data on social behavior, Data bases, Structuring data analysis projects, Foundations of endocrinological work with wild animals, Workin with long-term data sets</td>
 </tr>
 <tr class="odd">
 <td align="right">44</td>
@@ -846,7 +816,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">Alie</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">R programming (base &amp; tidyverse), Data wrangling, Data visualization (including mapping) (conceptualization +/ execution in R), Basic frequentist stats (parametric and non-parametric), General and generalized linear (mixed) modelling (GL(M)Ms and L(M)Ms), Basic movement analysis (calculating home ranges, DJLs, etc)</td>
 </tr>
 <tr class="even">
 <td align="right">44</td>
@@ -855,7 +824,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">Roi</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">Data wrangling and visualizations, Analysing acceleration data &amp; behavior inference from sensor data, Data collection design and working with data-loggers / GPS collars, working with video data (object detection &amp; tracking, Python, OpenCV), Machine Learning clustering, SVM, random forest, xgboost (R, Matlab)</td>
 </tr>
 <tr class="odd">
 <td align="right">45</td>
@@ -864,7 +832,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">Tracy</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">R programming (base &amp; tidyverse), Data wrangling &amp; visualization, Designing GLMMs &amp; otherwise structuring an analysis to test hypotheses, Executing GLMMs (frequentist), Long-term data, behavioral sampling design/analysis, database design</td>
 </tr>
 <tr class="even">
 <td align="right">45</td>
@@ -873,7 +840,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">Jake</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">General experimental design/analysis questions, Python: data wrangling (pandas, numpy, etc.), visualisation (expert knowledge of matplotlib and seaborn APIs), code optimization (vectorized/parallel programming, JIT optimization, GPU compute), machine learning and optimization libraries (JAX, PyTorch, Tensorflow/Keras, Numpyro/Pyro, PyMC3, PyStan), package development (pip, PyPI, setuptools), Analysis and interpretation of animal movement trajectories (incl. high-dimensional time series), social/collective behaviours, network data, audio/spectrogram data, Advanced computer vision and image processing (OpenCV, deep conv nets, object detection and tracking, pose estimation, segmentation, image/object classification), Advanced bayesian statistics and causal inference (GLMs/GLMMs, Bayesian networks, hierarchical models, autoregressive/time series models, latent variable models, variational inference), Machine learning and deep learning (neural nets, linear/nonlinear dimension reduction, contrastive learning, clustering &amp; unsupervised classification, sequence and time series models, supervised classification, Bayesian/probabilistic deep learning)</td>
 </tr>
 <tr class="odd">
 <td align="right">46</td>
@@ -882,7 +848,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">Eli</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">R, git/github, Data wrangling, Data visualization, Simulations, Social network data, long-term data, Happy to try to help with movement/tag data but I’m still learning, R package development</td>
 </tr>
 <tr class="even">
 <td align="right">46</td>
@@ -891,7 +856,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">Shauhin</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">R, QGIS, Data manipulation and visualizations, Sampling design, Bio-loggers and GPS collars, Bayesian (rstan) and frequentist statistics (GLMM/GAMM, splines, nonlinear hierarchical models, autoregressive/timeseries models, spatial regression, PCA, phylogenetic models), Geospatial statistics, Network Analysis, Simulation, theoretical modeling, agent based modeling, Supervised and unsupervised clustering, SVM, random forest, xgboost, Analysis of animal movement data (discrete and continuous time), Behavioral inference from sensor data (GPS, ACC), Remote sensing (Hyperspectral/multispectral data, satellite and aerial imagery, LiDAR, SAR, photogrammetry), Nutritional Analyses and Geometric framework of Nutrition, Spatial Cognition , Basic field endocrinology/physiology</td>
 </tr>
 <tr class="odd">
 <td align="right">47</td>
@@ -900,7 +864,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">Mara</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">R, Python, Data wrangling, Data visualization, Supervised and unsupervised dimensionality reduction, clustering, Bioacoustics, ML or other classifier (SVM, random forest, NN, xgboost, LDA..), Frequentist statistics in R, Bioinformatic analyses in R/bash/C (Illumina microarrays, NGS data, genomics…)</td>
 </tr>
 <tr class="even">
 <td align="right">47</td>
@@ -909,7 +872,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">Genevieve</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">Mostly in R, unless someone wants to do connectivity stuff using UNICOR and/or CircuitScape, Can maybe help with QGIS also, but try to avoid it, General data wrangling/visualisation, incl. movement and spatial data (gridded datasets etc), Problem shooting code/error messages, Running things in parallel (I’m not great but it works, more or less), Animal movement analysis; home range/daily distances etc (have mostly been using ctmm package recently), A bit of agent-based modelling (netlogo), lm/glm/glmm/gam using frequentist approaches</td>
 </tr>
 <tr class="odd">
 <td align="right">48</td>
@@ -918,7 +880,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">Vivek Hari</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">Python programming; data wrangling &amp; visualisation, Agent-based modelling (I tend to use C++), General analyses and data interpretation for animal movement, social/collective behaviours, Basic computer vision (OpenCV), Basic bayesian statistics (GLMs/GLMMs), Machine learning (dimensionality reduction/clustering)</td>
 </tr>
 <tr class="even">
 <td align="right">48</td>
@@ -927,7 +888,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">Urs</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">R programming, Data wrangling and visualizations, Working with spatial data (to a certain degree), Fitting linear models from LMs to GLMMs in a frequentist and bayesian way, Social Network Analysis, Generally working with data on social behavior, Data bases, Structuring data analysis projects, Foundations of endocrinological work with wild animals, Workin with long-term data sets</td>
 </tr>
 <tr class="odd">
 <td align="right">49</td>
@@ -936,7 +896,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">Alie</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">R programming (base &amp; tidyverse), Data wrangling, Data visualization (including mapping) (conceptualization +/ execution in R), Basic frequentist stats (parametric and non-parametric), General and generalized linear (mixed) modelling (GL(M)Ms and L(M)Ms), Basic movement analysis (calculating home ranges, DJLs, etc)</td>
 </tr>
 <tr class="even">
 <td align="right">49</td>
@@ -945,7 +904,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">Roi</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">Data wrangling and visualizations, Analysing acceleration data &amp; behavior inference from sensor data, Data collection design and working with data-loggers / GPS collars, working with video data (object detection &amp; tracking, Python, OpenCV), Machine Learning clustering, SVM, random forest, xgboost (R, Matlab)</td>
 </tr>
 <tr class="odd">
 <td align="right">50</td>
@@ -954,7 +912,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">Tracy</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">R programming (base &amp; tidyverse), Data wrangling &amp; visualization, Designing GLMMs &amp; otherwise structuring an analysis to test hypotheses, Executing GLMMs (frequentist), Long-term data, behavioral sampling design/analysis, database design</td>
 </tr>
 <tr class="even">
 <td align="right">50</td>
@@ -963,7 +920,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">Jake</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">General experimental design/analysis questions, Python: data wrangling (pandas, numpy, etc.), visualisation (expert knowledge of matplotlib and seaborn APIs), code optimization (vectorized/parallel programming, JIT optimization, GPU compute), machine learning and optimization libraries (JAX, PyTorch, Tensorflow/Keras, Numpyro/Pyro, PyMC3, PyStan), package development (pip, PyPI, setuptools), Analysis and interpretation of animal movement trajectories (incl. high-dimensional time series), social/collective behaviours, network data, audio/spectrogram data, Advanced computer vision and image processing (OpenCV, deep conv nets, object detection and tracking, pose estimation, segmentation, image/object classification), Advanced bayesian statistics and causal inference (GLMs/GLMMs, Bayesian networks, hierarchical models, autoregressive/time series models, latent variable models, variational inference), Machine learning and deep learning (neural nets, linear/nonlinear dimension reduction, contrastive learning, clustering &amp; unsupervised classification, sequence and time series models, supervised classification, Bayesian/probabilistic deep learning)</td>
 </tr>
 </tbody>
 </table>
