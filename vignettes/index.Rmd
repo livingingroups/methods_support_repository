@@ -28,8 +28,11 @@ create_html_header("fold") # either "show" or "fold"
 
 # Introduction
 
-The aim of this 'Methods Support Program' is to provide students the possibility to get a better overview about the methodological skills of the more-senior people in our department (postdocs+), and which might be valuable for ongoing thesis-projects. Thus, our goal is that students can optimally benefit from the available expertise.
+The goal of the “Methods Support Program” is to connect students in need of methodological assistance with more experienced researchers who can help. 
 
-Given our type of work, data wrangling and analysis skills, and applying different types of statistical techniques are obvious example. However, this program is also meant to cover other methodological areas, such as choosing and using GPS collars or audio recorders for our work.
+By posting the skillsets and availability of more-senior people in the department who are keen to provide support, students can select and reach out to a potential helper. Ideally, this makes it easier for students to get the support they need, and also distributes helping responsibilities across experience department members. While the focus of this program is on data wrangling and analysis, it can extend to other aspects of methodology – such as experimental design, choosing and using GPS collars and audio recorders, etc.
 
-To achieve this aim, we are providing an [overview about all people in our department currently offering their support for various methods-related question][Overview] and [information when and how to best reach these people][Schedule]. This is organized similar to office hours and for each week 2-3 people are listed that can be contacted for help. Some people will have office hours at a fixed day and time, whereas others can be contacted to setup a meeting at a flexible time.
+If you are looking for methods help, consult the [overview of people in the department who are offering their support][Overview]. Choose somebody whose area(s) of expertise align with your needs, and then [check their availability and contact info][Schedule]. The program is organized similar to office hours, and each week 2-3 people are available to provide help. Some people have office hours on a fixed day and time, whereas others can be contacted to setup a meeting at an agreed-upon day and time.
+
+If you are interested in being added to the list of helpers, contact Urs.
+
