@@ -27,9 +27,9 @@ create_html_header("fold") # either "show" or "fold"
 ```
 
 # Introduction
-This webpage will host the information about the Methods Support Program. *Better description will follow*
+
 The aim of this 'Methods Support Program' is to provide students the possibility to get a better overview about the methodological skills of the more-senior people in our department (postdocs+), and which might be valuable for ongoing thesis-projects. Thus, our goal is that students can optimally benefit from the available expertise.
 
-Given our type of work, data wrangling and analysis skills, and applying different types of statistical techniques is an obvious example, but this program is also meant to cover other methodological areas, such as choosing and using GPS collars or audio recorders for our work.
+Given our type of work, data wrangling and analysis skills, and applying different types of statistical techniques are obvious example. However, this program is also meant to cover other methodological areas, such as choosing and using GPS collars or audio recorders for our work.
 
-To achieve this aim, we are providing an [overview about all people currently offering their support for various methods-related question in our department][Overview]. Then, we will provide [information when and how to best approach these people][Schedule]. This is organized similar to office hours and for each week 2-3 people are listed that can be contacted if help is required. Some people will have office hours at a fixed day and time, whereas others can be contacted to setup a meeting.
+To achieve this aim, we are providing an [overview about all people in our department currently offering their support for various methods-related question][Overview] and [information when and how to best reach these people][Schedule]. This is organized similar to office hours and for each week 2-3 people are listed that can be contacted for help. Some people will have office hours at a fixed day and time, whereas others can be contacted to setup a meeting at a flexible time.
