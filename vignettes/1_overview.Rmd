@@ -14,25 +14,30 @@ knitr::opts_knit$set(root.dir = '../')
 ```{r}
 library(dplyr)
 library(knitr)
+library(flextable)
 ```
 
 
 Here is a list with all people interested in providing support including their areas in which they can provide support.
 
 ```{r}
-people <- readxl::read_excel(here::here("data/Info_on_people.xlsx"),
-                   sheet = "Name_table")
-support_area <- readxl::read_excel(here::here("data/Info_on_people.xlsx"),
-                   sheet = "Expertise_table")
+people <- read.csv(here::here("data/Name_table.csv"))
+support_area <- read.csv(here::here("data/Expertise_table.csv"))
 
 people_support_area <- people %>% 
   left_join(support_area, by = "Name_ID")
 
 people_support_area %>% 
-  group_by(Name_ID, FirstName) %>% 
-  summarize(Areas = paste(Support_areas, collapse = ", ")) %>% 
-  ungroup %>% 
-  select(FirstName, Areas) %>% 
-  kable()
+  mutate(Person = paste0(FirstName, " (", Name_ID, ")")) %>% 
+  select(Person, Area = Support_areas) %>% 
+  flextable() %>% 
+  color(j = c("Person", "Area"), color = "darkgreen", part = "all") %>% 
+  merge_v() %>% 
+  border_inner_h(border = officer::fp_border(color = "darkgreen", width = 1),
+                 part = "body") %>% 
+  border_inner_h(border = officer::fp_border(color = "black", width = 2),
+                 part = "header") %>% 
+  set_table_properties(layout = "autofit")
+
 ```
 

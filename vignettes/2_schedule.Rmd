@@ -14,24 +14,34 @@ knitr::opts_knit$set(root.dir = '../')
 ```{r}
 library(dplyr)
 library(knitr)
+library(flextable)
 ```
 
 
 ```{r}
-people <- readxl::read_excel(here::here("data/Info_on_people.xlsx"),
-                   sheet = "Name_table")
 
-schedule <- readxl::read_excel(here::here("data/Info_on_people.xlsx"),
-                   sheet = "Schedule_table")
+people <- read.csv(here::here("data/Name_table.csv"))
+schedule <- read.csv(here::here("data/Schedule_table.csv"))
 
 schedule_people <- schedule %>% 
   left_join(people, by = "Name_ID") %>% 
-  mutate(Start_date = as.Date(Start_date), End_date = as.Date(End_date))
+  mutate(Start_date = as.Date(Start_date, format = c("%d.%m.%y")),
+         End_date = as.Date(End_date, format = c("%d.%m.%y")))
 
 schedule_people %>% 
+  mutate(Person = paste0(FirstName, " (", Name_ID, ")")) %>% 
   select(Week, Week_start = Start_date, Week_end = End_date,
-         FirstName, When = If_fixed_when, How_to_contact) %>% 
-  kable()
+         Person, Day_and_Time = If_fixed_when, How_to_contact) %>% 
+  flextable() %>% 
+  color(j = c("Week_start", "Week_end"), color = "darkgreen", part = "all") %>%
+  color(j = c("Person"), color = "darkred", part = "all") %>%
+  merge_v() %>% 
+  border_inner_h(border = officer::fp_border(color = "darkgreen", width = 1),
+                 part = "body") %>%
+  border_inner_h(border = officer::fp_border(color = "black", width = 2),
+                 part = "header") %>%
+  set_table_properties(layout = "autofit")
+
 ```
 
 
