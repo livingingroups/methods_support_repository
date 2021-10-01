@@ -18,6 +18,7 @@ RH1,Analysing acceleration data & behavior inference from sensor data
 RH1,Data collection design and working with data-loggers / GPS collars
 RH1,"working with video data (object detection & tracking, Python, OpenCV)"
 RH1,"Machine Learning clustering, SVM, random forest, xgboost (R, Matlab)"
+RH1,GPS\ACC\IMU dataloggers attachment\design\configuration
 TM1,R programming (base & tidyverse)
 TM1,Data wrangling & visualization
 TM1,Designing GLMMs & otherwise structuring an analysis to test hypotheses
