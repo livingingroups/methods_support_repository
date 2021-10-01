@@ -38,6 +38,5 @@ people_support_area %>%
   border_inner_h(border = officer::fp_border(color = "black", width = 2),
                  part = "header") %>% 
   set_table_properties(layout = "autofit")
-
 ```
 
