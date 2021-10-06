@@ -20,10 +20,29 @@ knitr::opts_chunk$set(echo = TRUE,
 knitr::opts_knit$set(root.dir = '../')
 ```
 
-
 ```{r set_fold, include=FALSE}
 source("R/initial_folding.R")
 create_html_header("fold") # either "show" or "fold"
+```
+
+```{r}
+library(dplyr)
+library(knitr)
+library(flextable)
+```
+
+```{r}
+people <- read.csv(here::here("data/Name_table.csv"))
+support_area <- read.csv(here::here("data/Expertise_table.csv"))
+schedule <- read.csv(here::here("data/Schedule_table.csv"))
+
+today <- as.Date(Sys.time())
+current_week_people_support_area <- schedule %>% 
+  left_join(people, by = "Name_ID") %>% 
+  left_join(support_area, by = "Name_ID") %>% 
+  mutate(Start_date = as.Date(Start_date, format = c("%d.%m.%y")),
+         End_date = as.Date(End_date, format = c("%d.%m.%y"))) %>% 
+  filter(today > Start_date & today < End_date)
 ```
 
 # Introduction
@@ -32,10 +51,35 @@ The goal of the “Methods Support Program” is to connect students in need of 
 
 By posting the skillsets and availability of more-senior people in the department who are keen to provide support, students can select and reach out to a potential helper. Ideally, this makes it easier for students to get the support they need, and also distributes helping responsibilities across experience department members. While the focus of this program is on data wrangling and analysis, it can extend to other aspects of methodology – such as experimental design, choosing and using GPS collars and audio recorders, etc.
 
-If you are looking for methods help, consult the [overview of people in the department who are offering their support][Overview]. Choose somebody whose area(s) of expertise align with your needs, and then [check their availability and contact info][Schedule]. The program is organized similar to office hours, and each week 2-3 people are available to provide help. Some people have office hours on a fixed day and time, whereas others can be contacted 
-to setup a meeting at an agreed-upon day and time.
+If you are looking for methods help, consult the [overview of people in the department who are offering their support][Overview]. Choose somebody whose area(s) of expertise align with your needs, and then [check their availability and contact info][Schedule]. The program is organized similar to office hours, and each week 2-3 people are available to provide help. Some people have office hours on a fixed day and time, whereas others can be contacted to setup a meeting at an agreed-upon day and time.
 
-[INCLUDE INFO ON THE CURRENT WEEK HERE]
+**Current week** (if not up-to-date, the webpage has to re-created)  
+
+```{r}
+current_week_people_support_area %>% 
+  distinct(Week, Start_date, End_date) %>% 
+  kable()
+```
+
+**People available this week:**  
+
+```{r}
+current_week_people_support_area %>% 
+  mutate(Person = paste0(FirstName, " (", Name_ID, ")")) %>% 
+  select(Person, Day_and_Time = If_fixed_when, How_to_contact, Area = Support_areas) %>% 
+  flextable() %>% 
+  color(j = c("Person", "Day_and_Time", "How_to_contact"), color = "darkgreen", part = "all") %>%
+  color(j = c("Area"), color = "darkred", part = "all") %>%
+  merge_v() %>% 
+  border_inner_h(border = officer::fp_border(color = "darkgreen", width = 1),
+                 part = "body") %>%
+  border_inner_h(border = officer::fp_border(color = "black", width = 2),
+                 part = "header") %>%
+  set_table_properties(layout = "autofit")
+```
+ 
+ 
+
 
 **To get the most of these meetings, think prior to the meeting what exactly is needed and come with the thoughts/materials ready** (or even send them before the meeting). For example, for help with coding a specific model, it would be very helpful to send:
 

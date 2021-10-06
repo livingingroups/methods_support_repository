@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Methods Support Program</title>
   <meta name="description" content="Webpage to organize and advertise the Methods Support Program at the EAS department/MPI-AB" />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Methods Support Program" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Various people" />
 
 
-<meta name="date" content="2021-10-04" />
+<meta name="date" content="2021-10-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,6 +34,7 @@
 
 <link rel="next" href="overview.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -41,7 +42,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -696,15 +696,98 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1 class="title">Methods Support Program</h1>
 <h2 class="subtitle"><em>Webpage to organize and advertise this program</em></h2>
 <p class="author"><em>Various people</em></p>
-<p class="date"><em>2021-10-04</em></p>
+<p class="date"><em>2021-10-05</em></p>
 </div>
 <div id="introduction" class="section level1">
 <h1><span class="header-section-number">1</span> Introduction</h1>
 <p>The goal of the “Methods Support Program” is to connect students in need of methodological assistance with more experienced researchers who can help.</p>
 <p>By posting the skillsets and availability of more-senior people in the department who are keen to provide support, students can select and reach out to a potential helper. Ideally, this makes it easier for students to get the support they need, and also distributes helping responsibilities across experience department members. While the focus of this program is on data wrangling and analysis, it can extend to other aspects of methodology – such as experimental design, choosing and using GPS collars and audio recorders, etc.</p>
-<p>If you are looking for methods help, consult the <a href="overview.html#overview">overview of people in the department who are offering their support</a>. Choose somebody whose area(s) of expertise align with your needs, and then <a href="schedule.html#schedule">check their availability and contact info</a>. The program is organized similar to office hours, and each week 2-3 people are available to provide help. Some people have office hours on a fixed day and time, whereas others can be contacted
-to setup a meeting at an agreed-upon day and time.</p>
-<p>[INCLUDE INFO ON THE CURRENT WEEK HERE]</p>
+<p>If you are looking for methods help, consult the <a href="overview.html#overview">overview of people in the department who are offering their support</a>. Choose somebody whose area(s) of expertise align with your needs, and then <a href="schedule.html#schedule">check their availability and contact info</a>. The program is organized similar to office hours, and each week 2-3 people are available to provide help. Some people have office hours on a fixed day and time, whereas others can be contacted to setup a meeting at an agreed-upon day and time.</p>
+<p><strong>Current week</strong> (if not up-to-date, the webpage has to re-created)</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="index.html#cb3-1"></a>current_week_people_support_area <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb3-2"><a href="index.html#cb3-2"></a><span class="st">  </span><span class="kw">distinct</span>(Week, Start_date, End_date) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb3-3"><a href="index.html#cb3-3"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">Week</th>
+<th align="left">Start_date</th>
+<th align="left">End_date</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">40</td>
+<td align="left">2021-10-02</td>
+<td align="left">2021-10-08</td>
+</tr>
+</tbody>
+</table>
+<p><strong>People available this week:</strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="index.html#cb4-1"></a>current_week_people_support_area <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb4-2"><a href="index.html#cb4-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Person =</span> <span class="kw">paste0</span>(FirstName, <span class="st">&quot; (&quot;</span>, Name_ID, <span class="st">&quot;)&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb4-3"><a href="index.html#cb4-3"></a><span class="st">  </span><span class="kw">select</span>(Person, <span class="dt">Day_and_Time =</span> If_fixed_when, How_to_contact, <span class="dt">Area =</span> Support_areas) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb4-4"><a href="index.html#cb4-4"></a><span class="st">  </span><span class="kw">flextable</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb4-5"><a href="index.html#cb4-5"></a><span class="st">  </span><span class="kw">color</span>(<span class="dt">j =</span> <span class="kw">c</span>(<span class="st">&quot;Person&quot;</span>, <span class="st">&quot;Day_and_Time&quot;</span>, <span class="st">&quot;How_to_contact&quot;</span>), <span class="dt">color =</span> <span class="st">&quot;darkgreen&quot;</span>, <span class="dt">part =</span> <span class="st">&quot;all&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb4-6"><a href="index.html#cb4-6"></a><span class="st">  </span><span class="kw">color</span>(<span class="dt">j =</span> <span class="kw">c</span>(<span class="st">&quot;Area&quot;</span>), <span class="dt">color =</span> <span class="st">&quot;darkred&quot;</span>, <span class="dt">part =</span> <span class="st">&quot;all&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb4-7"><a href="index.html#cb4-7"></a><span class="st">  </span><span class="kw">merge_v</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb4-8"><a href="index.html#cb4-8"></a><span class="st">  </span><span class="kw">border_inner_h</span>(<span class="dt">border =</span> officer<span class="op">::</span><span class="kw">fp_border</span>(<span class="dt">color =</span> <span class="st">&quot;darkgreen&quot;</span>, <span class="dt">width =</span> <span class="dv">1</span>),</span>
+<span id="cb4-9"><a href="index.html#cb4-9"></a>                 <span class="dt">part =</span> <span class="st">&quot;body&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb4-10"><a href="index.html#cb4-10"></a><span class="st">  </span><span class="kw">border_inner_h</span>(<span class="dt">border =</span> officer<span class="op">::</span><span class="kw">fp_border</span>(<span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">width =</span> <span class="dv">2</span>),</span>
+<span id="cb4-11"><a href="index.html#cb4-11"></a>                 <span class="dt">part =</span> <span class="st">&quot;header&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb4-12"><a href="index.html#cb4-12"></a><span class="st">  </span><span class="kw">set_table_properties</span>(<span class="dt">layout =</span> <span class="st">&quot;autofit&quot;</span>)</span></code></pre></div>
+<template id="f6825c19-4b98-4744-844b-9c84bf8c5b0f"><style>
+.tabwid table{
+  border-spacing:0px !important;
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+</style><div class="tabwid"><style>.cl-56e429e4{table-layout:auto;width:0%;}.cl-56dd324c{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 100, 0, 1.00);background-color:transparent;}.cl-56dd326a{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(139, 0, 0, 1.00);background-color:transparent;}.cl-56dd4b74{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-56dd8922{background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 100, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-56dd8936{background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 100, 0, 1.00);border-top: 1pt solid rgba(0, 100, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-56dd8940{background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(0, 100, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-56dd894a{background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-56e429e4'>
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-56dd894a"><p class="cl-56dd4b74"><span class="cl-56dd324c">Person</span></p></td><td class="cl-56dd894a"><p class="cl-56dd4b74"><span class="cl-56dd324c">Day_and_Time</span></p></td><td class="cl-56dd894a"><p class="cl-56dd4b74"><span class="cl-56dd324c">How_to_contact</span></p></td><td class="cl-56dd894a"><p class="cl-56dd4b74"><span class="cl-56dd326a">Area</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td  rowspan="7"class="cl-56dd8922"><p class="cl-56dd4b74"><span class="cl-56dd324c">Tracy (TM1)</span></p></td><td  rowspan="7"class="cl-56dd8922"><p class="cl-56dd4b74"><span class="cl-56dd324c">By appointment</span></p></td><td  rowspan="7"class="cl-56dd8922"><p class="cl-56dd4b74"><span class="cl-56dd324c">email me and we set something up</span></p></td><td class="cl-56dd8922"><p class="cl-56dd4b74"><span class="cl-56dd326a">R programming (base &amp; tidyverse)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-56dd8936"><p class="cl-56dd4b74"><span class="cl-56dd326a">Data wrangling &amp; visualization</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-56dd8936"><p class="cl-56dd4b74"><span class="cl-56dd326a">Designing GLMMs &amp; otherwise structuring an analysis to test hypotheses</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-56dd8936"><p class="cl-56dd4b74"><span class="cl-56dd326a">Executing GLMMs (frequentist)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-56dd8936"><p class="cl-56dd4b74"><span class="cl-56dd326a">Long-term data, behavioral sampling design/analysis, database design</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-56dd8936"><p class="cl-56dd4b74"><span class="cl-56dd326a">eObs collars</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-56dd8936"><p class="cl-56dd4b74"><span class="cl-56dd326a">endocrinology</span></p></td></tr><tr style="overflow-wrap:break-word;"><td  rowspan="6"class="cl-56dd8936"><p class="cl-56dd4b74"><span class="cl-56dd324c">Jake (JG1)</span></p></td><td  rowspan="6"class="cl-56dd8936"><p class="cl-56dd4b74"><span class="cl-56dd324c"></span></p></td><td  rowspan="6"class="cl-56dd8936"><p class="cl-56dd4b74"><span class="cl-56dd324c"></span></p></td><td class="cl-56dd8936"><p class="cl-56dd4b74"><span class="cl-56dd326a">General experimental design/analysis questions</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-56dd8936"><p class="cl-56dd4b74"><span class="cl-56dd326a">Python: data wrangling (pandas, numpy, etc.), visualisation (expert knowledge of matplotlib and seaborn APIs), code optimization (vectorized/parallel programming, JIT optimization, GPU compute), machine learning and optimization libraries (JAX, PyTorch, Tensorflow/Keras, Numpyro/Pyro, PyMC3, PyStan), package development (pip, PyPI, setuptools)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-56dd8936"><p class="cl-56dd4b74"><span class="cl-56dd326a">Analysis and interpretation of animal movement trajectories (incl. high-dimensional time series), social/collective behaviours, network data, audio/spectrogram data</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-56dd8936"><p class="cl-56dd4b74"><span class="cl-56dd326a">Advanced computer vision and image processing (OpenCV, deep conv nets, object detection and tracking, pose estimation, segmentation, image/object classification)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-56dd8936"><p class="cl-56dd4b74"><span class="cl-56dd326a">Advanced bayesian statistics and causal inference (GLMs/GLMMs, Bayesian networks, hierarchical models, autoregressive/time series models, latent variable models, variational inference)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-56dd8940"><p class="cl-56dd4b74"><span class="cl-56dd326a">Machine learning and deep learning (neural nets, linear/nonlinear dimension reduction, contrastive learning, clustering &amp; unsupervised classification, sequence and time series models, supervised classification, Bayesian/probabilistic deep learning)</span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="a3a8fcbc-8a03-4e70-9e98-c48a83644045"></div>
+<script>
+var dest = document.getElementById("a3a8fcbc-8a03-4e70-9e98-c48a83644045");
+var template = document.getElementById("f6825c19-4b98-4744-844b-9c84bf8c5b0f");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+</script>
+
 <p><strong>To get the most of these meetings, think prior to the meeting what exactly is needed and come with the thoughts/materials ready</strong> (or even send them before the meeting). For example, for help with coding a specific model, it would be very helpful to send:</p>
 <ol style="list-style-type: decimal">
 <li>The questions that should be adressed with the model</li>
@@ -724,7 +807,6 @@ to setup a meeting at an agreed-upon day and time.</p>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -765,7 +847,7 @@ gitbook.start({
 },
 "download": null,
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {

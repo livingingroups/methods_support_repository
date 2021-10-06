@@ -1,11 +1,11 @@
 ﻿Name_ID,LastName,FirstName,Hours_per_week,Interval_between_weeks,Fixed_or_flexible,If_fixed_when,How_to_contact,Comments
-AA1,unknown,Alie,2,2,fixed,,,"If demand is generally low, then drop-in format would be fine, but if demand is high, then maybe a sign-up system (via google calendar?), with 1 or 2 people signing up ahead of time for each block?"
+AA1,unknown,Alie,2,2,fixed,Mondays from 2-4pm,contact by email or in person,"If demand is generally low, then drop-in format would be fine, but if demand is high, then maybe a sign-up system (via google calendar?), with 1 or 2 people signing up ahead of time for each block?"
 UK1,unknown,Urs,2,2,fixed,"Wednesday, 12 - 2 pm",Email or in person,I prefer a sign-up system so that I have a good idea what to expect. Using the google-calendar (or something similar) as done for Alie’s SciWrit sessions would be ideal for me.
 RH1,unknown,Roi,2,2,flexible,,,drop-in or send a slack\email message to schedule
-TM1,unknown,Tracy,2,2,either,,,I wonder if students are more likely to ask for help from us if it’s fixed - I know I feel more comfortable taking one of Alie’s slots rather than emailing her to see if she has time for me
-ES1,unknown,Eli,2,2,flexible,,,Email or slack me [email address] or stop by my office and we can set up a time. 
+TM1,unknown,Tracy,2,2,either,By appointment,email me and we set something up,I wonder if students are more likely to ask for help from us if it’s fixed - I know I feel more comfortable taking one of Alie’s slots rather than emailing her to see if she has time for me
+ES1,unknown,Eli,2,2,flexible,Tues and Wed 12-2p,in person or over email,Email or slack me [email address] or stop by my office and we can set up a time. 
 VHS1,unknown,Vivek Hari,2,2,fixed,,,"If demand is generally low, then drop-in format would be fine, but if demand is high, then maybe a sign-up system (via google calendar?), with 1 person signing up ahead "
 JG1,unknown,Jake,2,2,fixed,,,Sign up system or drop-in if time slot has a conflict
 SA1,unknown,Shauhin,2,2,either,,,Sign up system preferred
-MT1,unknown,Mara,2,2,fixed,,,sign-up or drop-in are both fine with me
+MT1,unknown,Mara,2,2,fixed,Wed 10-12,other times via appointment. Contact via email,sign-up or drop-in are both fine with me
 GF1,unknown,Genevieve,2,2,fixed,,,"drop-in if easy/quick question, otherwise probably contact me first somehow (email/slack) but not a huge preference"
