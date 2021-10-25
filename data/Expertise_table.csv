@@ -78,3 +78,4 @@ GF1,"Running things in parallel (I’m not great but it works, more or less)"
 GF1,Animal movement analysis; home range/daily distances etc (have mostly been using ctmm package recently)
 GF1,A bit of agent-based modelling (netlogo)
 GF1,lm/glm/glmm/gam using frequentist approaches
+VD1,"field audio recording; tag based audio recorders (deployment, setup and troubleshooting); audio data processing, acoustic analysis in R, Avisoft, Raven and more; playback experiment planning, playback tracks design, playback equipment advice; operation of FLIR thermal cameras,  processing and decoding FLIR file formats, basic thermal analysis using ImageJ and/or Thermimage"
