@@ -2,7 +2,7 @@
 title: "Methods Support Program"
 subtitle: "Webpage to organize and advertise this program"
 author: "Various people"
-date: "2021-11-08"
+date: "2022-05-24"
 documentclass: book
 bibliography: [book.bib]
 biblio-style: apalike
@@ -30,6 +30,7 @@ library(dplyr)
 #>     intersect, setdiff, setequal, union
 library(knitr)
 library(flextable)
+#> Warning: package 'flextable' was built under R version 4.0.5
 ```
 
 
@@ -72,9 +73,8 @@ current_week_people_support_area %>%
 
 
 
-| Week|Start_date |End_date   |
-|----:|:----------|:----------|
-|   45|2021-11-06 |2021-11-12 |
+| Week|Start_date |End_date |
+|----:|:----------|:--------|
 
 **People available this week:**  
 
@@ -95,7 +95,7 @@ current_week_people_support_area %>%
 ```
 
 ```{=html}
-<template id="4771dba2-bfea-4fa3-a934-395d38470c2c"><style>
+<template id="77ffee7d-22c5-4249-bf26-a1dd3001bd60"><style>
 .tabwid table{
   border-spacing:0px !important;
   border-collapse:collapse;
@@ -129,15 +129,15 @@ current_week_people_support_area %>%
 .tabwid table tr {
 background-color: transparent;
 }
-</style><div class="tabwid"><style>.cl-012df7ba{table-layout:auto;width:0%;}.cl-0128d2ee{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 100, 0, 1.00);background-color:transparent;}.cl-0128d30c{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(139, 0, 0, 1.00);background-color:transparent;}.cl-0128e432{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-012914a2{background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 100, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-012914b6{background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 100, 0, 1.00);border-top: 1pt solid rgba(0, 100, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-012914c0{background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(0, 100, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-012914c1{background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-012df7ba'>
+</style><div class="tabwid"><style>.cl-551da6bc{table-layout:auto;width:0%;}.cl-551908a0{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 100, 0, 1.00);background-color:transparent;}.cl-551908be{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(139, 0, 0, 1.00);background-color:transparent;}.cl-551917be{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-551937f8{background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-551da6bc'>
 ```
 
 ```{=html}
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-012914c1"><p class="cl-0128e432"><span class="cl-0128d2ee">Person</span></p></td><td class="cl-012914c1"><p class="cl-0128e432"><span class="cl-0128d2ee">Day_and_Time</span></p></td><td class="cl-012914c1"><p class="cl-0128e432"><span class="cl-0128d2ee">How_to_contact</span></p></td><td class="cl-012914c1"><p class="cl-0128e432"><span class="cl-0128d30c">Area</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td  rowspan="7"class="cl-012914a2"><p class="cl-0128e432"><span class="cl-0128d2ee">Tracy (TM1)</span></p></td><td  rowspan="7"class="cl-012914a2"><p class="cl-0128e432"><span class="cl-0128d2ee">By appointment</span></p></td><td  rowspan="7"class="cl-012914a2"><p class="cl-0128e432"><span class="cl-0128d2ee">email me and we set something up</span></p></td><td class="cl-012914a2"><p class="cl-0128e432"><span class="cl-0128d30c">R programming (base &amp; tidyverse)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-012914b6"><p class="cl-0128e432"><span class="cl-0128d30c">Data wrangling &amp; visualization</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-012914b6"><p class="cl-0128e432"><span class="cl-0128d30c">Designing GLMMs &amp; otherwise structuring an analysis to test hypotheses</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-012914b6"><p class="cl-0128e432"><span class="cl-0128d30c">Executing GLMMs (frequentist)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-012914b6"><p class="cl-0128e432"><span class="cl-0128d30c">Long-term data, behavioral sampling design/analysis, database design</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-012914b6"><p class="cl-0128e432"><span class="cl-0128d30c">eObs collars</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-012914b6"><p class="cl-0128e432"><span class="cl-0128d30c">endocrinology</span></p></td></tr><tr style="overflow-wrap:break-word;"><td  rowspan="6"class="cl-012914b6"><p class="cl-0128e432"><span class="cl-0128d2ee">Jake (JG1)</span></p></td><td  rowspan="6"class="cl-012914b6"><p class="cl-0128e432"><span class="cl-0128d2ee">Tues and Thurs 2-4pm</span></p></td><td  rowspan="6"class="cl-012914b6"><p class="cl-0128e432"><span class="cl-0128d2ee">Email (jgraving@ab.mpg.de) or Slack</span></p></td><td class="cl-012914b6"><p class="cl-0128e432"><span class="cl-0128d30c">General experimental design/analysis questions</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-012914b6"><p class="cl-0128e432"><span class="cl-0128d30c">Python: data wrangling (pandas, numpy, etc.), visualisation (expert knowledge of matplotlib and seaborn APIs), code optimization (vectorized/parallel programming, JIT optimization, GPU compute), machine learning and optimization libraries (JAX, PyTorch, Tensorflow/Keras, Numpyro/Pyro, PyMC3, PyStan), package development (pip, PyPI, setuptools)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-012914b6"><p class="cl-0128e432"><span class="cl-0128d30c">Analysis and interpretation of animal movement trajectories (incl. high-dimensional time series), social/collective behaviours, network data, audio/spectrogram data</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-012914b6"><p class="cl-0128e432"><span class="cl-0128d30c">Advanced computer vision and image processing (OpenCV, deep conv nets, object detection and tracking, pose estimation, segmentation, image/object classification)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-012914b6"><p class="cl-0128e432"><span class="cl-0128d30c">Advanced bayesian statistics and causal inference (GLMs/GLMMs, Bayesian networks, hierarchical models, autoregressive/time series models, latent variable models, variational inference)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-012914c0"><p class="cl-0128e432"><span class="cl-0128d30c">Machine learning and deep learning (neural nets, linear/nonlinear dimension reduction, contrastive learning, clustering &amp; unsupervised classification, sequence and time series models, supervised classification, Bayesian/probabilistic deep learning)</span></p></td></tr></tbody></table></div></template>
-<div class="flextable-shadow-host" id="31479716-9bac-4bfd-87de-b2d2dbf1615d"></div>
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-551937f8"><p class="cl-551917be"><span class="cl-551908a0">Person</span></p></td><td class="cl-551937f8"><p class="cl-551917be"><span class="cl-551908a0">Day_and_Time</span></p></td><td class="cl-551937f8"><p class="cl-551917be"><span class="cl-551908a0">How_to_contact</span></p></td><td class="cl-551937f8"><p class="cl-551917be"><span class="cl-551908be">Area</span></p></td></tr></thead></table></div></template>
+<div class="flextable-shadow-host" id="8628032a-dafb-434e-a08d-ce818e2c328f"></div>
 <script>
-var dest = document.getElementById("31479716-9bac-4bfd-87de-b2d2dbf1615d");
-var template = document.getElementById("4771dba2-bfea-4fa3-a934-395d38470c2c");
+var dest = document.getElementById("8628032a-dafb-434e-a08d-ce818e2c328f");
+var template = document.getElementById("77ffee7d-22c5-4249-bf26-a1dd3001bd60");
 var caption = template.content.querySelector("caption");
 if(caption) {
   caption.style.cssText = "display:block;text-align:center;";
